@@ -1,0 +1,4 @@
+mkdocs-awesome-nav
+pymdown-extensions
+mkdocs-material
+mkdocs-macros-plugin
