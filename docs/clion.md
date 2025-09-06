@@ -1,6 +1,9 @@
 # CLion
 
-A CLion a JetBrains által fejlesztett C/C++ fejlesztőkörnyezet. 2025 óta ingyenes személyes felhasználásra,
+A CLion a JetBrains által fejlesztett C/C++ fejlesztőkörnyezet.
+Letölteni itt lehet: <https://www.jetbrains.com/clion/download>
+
+2025 óta ingyenes személyes felhasználásra,
 viszont hallgatói licensz is kérhető hozzá: <https://www.jetbrains.com/academy/student-pack>
 
 ## Fordítóprogram telepítése
@@ -68,7 +71,7 @@ add_executable(stuff main.c)
 ```
 
 * `cmake_minimum_required(VERSION 3.31)`: ez a sor csak azért van itt, mert kötelező. A minimum CMake verziót adja meg, amivel a projekt kompatibilis. Én a `3.25` -ös verziót szoktam használni, mivel néhány Linux distro még mindig ezt használja alapértelmezettként...
-* `project(stuff C)`: a `project` deklarálja a projekt nevét (ez esetben "stuff"), a `C` pedig a projekt átlal használt nyelvet (nyelveket) adja meg. Így is írható: `project(stuff LANGUAGES C)`
+* `project(stuff C)`: a `project` deklarálja a projekt nevét (ez esetben "stuff"), a `C` pedig a projekt átlal használt nyelvet (nyelveket) adja meg.<br>Így is írható: `project(stuff LANGUAGES C)`
 * `set(CMAKE_C_STANDARD 11)`: megadja a projekt által használt C standard verziót. (C99, C11, C23, stb.)
 * `add_executable(stuff main.c)`: deklarál egy futtatható (executable) CMake target -et és forrásfájlként hozzáadja a `main.c` nevű filet.
 
@@ -79,8 +82,8 @@ Ezek azok az entitások, amikből később futtatható (vagy csatolható) kód k
 
 ### Több fileos projektek
 
-!!! warn
-    A több forrásfileból álló projektek a tananyagban később szerepelnek, viszont a háziban követelmény így dolgozni
+!!! warning
+    A több forrásfileból álló projektek a tananyagban ugyan később szerepelnek, viszont a háziban követelmény így dolgozni!
 
 Jobb klikkelj a projekt mappájára:
 
@@ -109,9 +112,12 @@ A projekt fájlstruktúrában megjelentek a `foo.h` és `foo.c` fájlok, valamin
 ```c
 //foo.h
 
-#pragma once
+#ifndef FOO_H
+#define FOO_H
 
 void helloWorld(void);
+
+#endif
 ```
 
 ```c
@@ -136,19 +142,20 @@ int main(void) {
 }
 ```
 
-A CMakeList -ben:
+A CMakeList -ben automatikusan új kód generálodott:
 
 ```cmake
 add_executable(stuff main.c foo.c foo.h)
 ```
 
-A programhoz mostmár 3 file tartozik. 
+A programhoz mostmár 3 file tartozik, ezek kódja alkotja majd a végső programot.
 
 !!! note
     A CMake okos és tudja, hogy a header fileokat nem fordítjuk le önmagukban, 
-    ezért ezeket egyébként ki fogja venni a végleges build-ből, viszont a fejlesztőkörnyezetek csak úgy fognak helyesen működni, 
+    ezért ezeket egyébként ki fogja venni a végleges build-ből, viszont a fejlesztőkörnyezet csak úgy fog helyesen működni, 
     ha a header fileok is hozzá vannak adva a targethez.
 
 !!! note
     Próbáld ki mi történik akkor, ha kiveszed a `foo.c` fájlt a targetből!
     A kód ugyan lefordul, de a linker nem talál definíciót a `helloWorld` függvényhet (Undefined Reference error).
+    Ha ilyen hibát tapasztalsz, bizonyosodj meg arról, hogy az executable-hez hozzáadtad az új forrásfájlokat!
