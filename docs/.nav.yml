@@ -1,3 +1,4 @@
 nav:
   - 'Home': index.md
-  - 'CLion': clion.md
+  - 'CLion': clion
+  - 'Simple Directmedia Library': sdl
