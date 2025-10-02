@@ -1,0 +1,782 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../sdl/sdl-cmake/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>CLion - A Programozás Alapjai 1. - Lipódi László</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#clion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="A Programozás Alapjai 1. - Lipódi László" class="md-header__button md-logo" aria-label="A Programozás Alapjai 1. - Lipódi László" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A Programozás Alapjai 1. - Lipódi László
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CLion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="A Programozás Alapjai 1. - Lipódi László" class="md-nav__button md-logo" aria-label="A Programozás Alapjai 1. - Lipódi László" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    A Programozás Alapjai 1. - Lipódi László
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CLion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            CLion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    CLion
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    CLion
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#forditoprogram-telepitese" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fordítóprogram telepítése
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kornyezet-beallitasa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Környezet beállítása
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hello, World!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMake
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmake-mukodese-roviden" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMake működése röviden
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alapertelmezett-cmakeliststxt-ertelmezese" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alapértelmezett CMakeLists.txt értelmezése
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alapértelmezett CMakeLists.txt értelmezése">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmake-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMake target
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tobb-fileos-projektek" class="md-nav__link">
+    <span class="md-ellipsis">
+      Több fileos projektek
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Simple Directmedia Library
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Simple Directmedia Library
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sdl/sdl-cmake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SDL2 telepítése CMake környezetben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#forditoprogram-telepitese" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fordítóprogram telepítése
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kornyezet-beallitasa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Környezet beállítása
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hello, World!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMake
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmake-mukodese-roviden" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMake működése röviden
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alapertelmezett-cmakeliststxt-ertelmezese" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alapértelmezett CMakeLists.txt értelmezése
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alapértelmezett CMakeLists.txt értelmezése">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmake-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMake target
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tobb-fileos-projektek" class="md-nav__link">
+    <span class="md-ellipsis">
+      Több fileos projektek
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="clion">CLion</h1>
+<p>A CLion a JetBrains által fejlesztett C/C++ fejlesztőkörnyezet.
+Letölteni itt lehet: <a href="https://www.jetbrains.com/clion/download">https://www.jetbrains.com/clion/download</a></p>
+<p>2025 óta ingyenes személyes felhasználásra,
+viszont hallgatói licensz is kérhető hozzá: <a href="https://www.jetbrains.com/academy/student-pack">https://www.jetbrains.com/academy/student-pack</a></p>
+<h2 id="forditoprogram-telepitese">Fordítóprogram telepítése</h2>
+<p>A CLion fejlesztőkörnyezet automatikusan telepít egy MinGW <em>(Minimalist Gnu for Windows)</em>, ami egyes GNU eszközök Windows portja. 
+Ez magában foglalja a GCC fordítóprogramot, valamint a GDB nyomkövetőt (debugger) is.</p>
+<h2 id="kornyezet-beallitasa">Környezet beállítása</h2>
+<p>Ha letöltötted a programot és beléptél a JetBrains fiókoddal, akkor valami ilyesmi oldal fogad:</p>
+<p><img alt="alt text" src="../assets/clion_home.png" /></p>
+<p>Válaszd a "New Project" opciót, ezen belül pedig a "C Executable" -t. Állítsd a standard verziót C11 -re, kb. ezt 
+tanítja a tárgy is.</p>
+<p>Okézd le ezt az ablakot. Ezután a CLion felajánlja a különböző <em>toolchain</em>-ek konfigurálását. CLion-ban egy toolchain egy fordítóprogramból, debuggerből és egy generátorból áll (erről később).</p>
+<p><img alt="alt text" src="../assets/clion_toolchain.png" /></p>
+<p>Mint már említettem, a CLion automatikusan telepít egy toolchain-t így neked ezzel nem kell fogalkoznod, nyomj az "Ok" gombra.</p>
+<h2 id="hello-world">Hello, World!</h2>
+<p>A fejlesztőkörnyezet automatikusan készít egy <code>main.c</code> forrásfájlt. Ebbe a file-ba az alábbi kódrészletet másold be:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>A jobb felső sarokban lévő kis zöld háromszögre kattintva indítsd el a programot.</p>
+<h2 id="cmake">CMake</h2>
+<p>Talán észrevehetted, hogy a projektedben megjelent egy <code>CMakeLists.txt</code> nevű file is.</p>
+<p>A CLion a <em>CMake</em> nevű <em>build system</em> -et használja.</p>
+<h3 id="cmake-mukodese-roviden">CMake működése röviden</h3>
+<p>A projekt "config" fileja a <code>CMakeLists.txt</code>. Ez a "script" írja le azt, hogy a projektben található forrásfájlokból
+végül hogyan lesz használható program. A CMake egy deklaratív nyelv. Nem kell megmondani, hogy hogyan csinálja azt, amit csinál, csak azt kell megmondani, hogy <strong>mit</strong> csináljon.</p>
+<p>A CMake önmagában nem build-system. A CMakeList alapján egy <em>generátor</em>-nak nevezett, tényleges build system -hez (pl. Make, Visual Studio, Ninja) generál projekt fileokat. A Ninja egy tökéletes választás, kicsi és gyors. Elvileg a CLion automatikusan telepíti.</p>
+<p>Ezután a generátor build system (Ninja) a generált config alapján lefuttatja a fordítóprogramot, amely előállítja a végső bináris filet, ami már futtatható.</p>
+<p><img alt="cmake_pipeline" src="../assets/cmake_pipeline.png" /></p>
+<h3 id="alapertelmezett-cmakeliststxt-ertelmezese">Alapértelmezett CMakeLists.txt értelmezése</h3>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.31</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">project</span><span class="p">(</span><span class="s">stuff</span><span class="w"> </span><span class="s">C</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_C_STANDARD</span><span class="w"> </span><span class="s">11</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">add_executable</span><span class="p">(</span><span class="s">stuff</span><span class="w"> </span><span class="s">main.c</span><span class="p">)</span>
+</span></code></pre></div>
+<ul>
+<li><code>cmake_minimum_required(VERSION 3.31)</code>: ez a sor csak azért van itt, mert kötelező. A minimum CMake verziót adja meg, amivel a projekt kompatibilis. Én a <code>3.25</code> -ös verziót szoktam használni, mivel néhány Linux distro még mindig ezt használja alapértelmezettként...</li>
+<li><code>project(stuff C)</code>: a <code>project</code> deklarálja a projekt nevét (ez esetben "stuff"), a <code>C</code> pedig a projekt átlal használt nyelvet (nyelveket) adja meg.<br>Így is írható: <code>project(stuff LANGUAGES C)</code></li>
+<li><code>set(CMAKE_C_STANDARD 11)</code>: megadja a projekt által használt C standard verziót. (C99, C11, C23, stb.)</li>
+<li><code>add_executable(stuff main.c)</code>: deklarál egy futtatható (executable) CMake target -et és forrásfájlként hozzáadja a <code>main.c</code> nevű filet.</li>
+</ul>
+<h4 id="cmake-target">CMake target</h4>
+<p>CMake-ben egy target lehet executable, library, stb. 
+Ezek azok az entitások, amikből később futtatható (vagy csatolható) kód képződik.</p>
+<h3 id="tobb-fileos-projektek">Több fileos projektek</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A több forrásfileból álló projektek a tananyagban ugyan később szerepelnek, viszont a háziban követelmény így dolgozni!</p>
+</div>
+<p>Jobb klikkelj a projekt mappájára:</p>
+<p><img alt="alt text" src="../assets/cmake_projectdir.png" /></p>
+<p>Majd válaszd a <code>New&gt;C/C++ Source file</code> opciót!</p>
+<p><img alt="alt text" src="../assets/cmake_newfile_1.png" /></p>
+<p>A következő felugró ablakban megadhatunk néhány dolgot:</p>
+<ul>
+<li>Name: a file neve. A fájlkiterjesztést (pl .c) <strong>nem</strong> kell megadni</li>
+<li>Type: a file típusa. Itt most a <code>.c</code> kell.</li>
+<li>Create associated header: Ha ez ki van pipálva, akkor létrejön egy ugyanilyen nevű header file is. 
+  Sokszor header-source párokat csinálunk, ezért ez egy gyakran használt kapcsoló lesz.</li>
+<li>Add to targets: A kiválasztott CMake target-ekhez automatikusan hozzáadja az új forrásfájlokat.</li>
+</ul>
+<p>Csinálj egy <code>foo.h</code> - <code>foo.c</code> file párt!</p>
+<p><img alt="alt text" src="../assets/cmake_newfile_2.png" /></p>
+<p>A projekt fájlstruktúrában megjelentek a <code>foo.h</code> és <code>foo.c</code> fájlok, valamint a <code>CMakeLists.txt</code> -ben is hozzá lett adva a két új file.</p>
+<p>Írd át úgy a programot, hogy a <code>foo.h</code> deklarál egy <code>helloWorld</code> függvényt, a <code>foo.c</code> definiálja ezt úgy, hogy a függvény a <code>Hello, World!</code> szöveget írja a konzolra, a <code>main.c</code> pedig meghívja ezt a <code>helloWorld</code> függvényt!</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">//foo.h</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cp">#ifndef FOO_H</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="cp">#define FOO_H</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">helloWorld</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="cp">#endif</span>
+</span></code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">//foo.c</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;foo.h&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">helloWorld</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">//main.c</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;foo.h&quot;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">helloWorld</span><span class="p">();</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>A CMakeList -ben automatikusan új kód generálodott:</p>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">add_executable</span><span class="p">(</span><span class="s">stuff</span><span class="w"> </span><span class="s">main.c</span><span class="w"> </span><span class="s">foo.c</span><span class="w"> </span><span class="s">foo.h</span><span class="p">)</span>
+</span></code></pre></div>
+<p>A programhoz mostmár 3 file tartozik, ezek kódja alkotja majd a végső programot.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A CMake okos és tudja, hogy a header fileokat nem fordítjuk le önmagukban, 
+ezért ezeket egyébként ki fogja venni a végleges build-ből, viszont a fejlesztőkörnyezet csak úgy fog helyesen működni, 
+ha a header fileok is hozzá vannak adva a targethez.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Próbáld ki mi történik akkor, ha kiveszed a <code>foo.c</code> fájlt a targetből!
+A kód ugyan lefordul, de a linker nem talál definíciót a <code>helloWorld</code> függvényhet (Undefined Reference error).
+Ha ilyen hibát tapasztalsz, bizonyosodj meg arról, hogy az executable-hez hozzáadtad az új forrásfájlokat!</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
