@@ -169,6 +169,7 @@ erről a linkről: <https://github.com/nevemlaci/Prog1_SDL2> letölthető.
 A projekt egy bootstrap Python scriptet tartalmaz, amely letölti a szükséges függőségeket.
 
 A használat elég egyszerű, a megfelelő script file-t kell futtatni:
+
 * `mingw.bat`: MinGW toolchain esetén
 * `msvc.bat`: MSVC fordító esetén
 * `unix.sh`: Unix (Linux/MacOS) esetén
